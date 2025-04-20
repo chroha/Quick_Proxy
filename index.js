@@ -9,6 +9,11 @@ async function handleRequest(request, env) {
   const url = new URL(request.url);
   const queryPassword = url.searchParams.get("password");
 
+  // 特别检测：如果是 uptime 检查路径，直接返回 OK
+  if (url.pathname === "/uptime-check") {
+    return new Response("OK", { status: 200 });
+  }
+
   // 提取路径中的目标网址
   let actualUrlStr = url.pathname.slice(1);
   actualUrlStr = decodeURIComponent(actualUrlStr);
