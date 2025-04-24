@@ -163,7 +163,7 @@ async function handleRequest(request, env) {
               const pwd = "${queryPassword || ''}";
               if (inputUrl) {
                 const fullUrl = inputUrl.startsWith("http") ? inputUrl : "https://" + inputUrl;
-                window.open("/" + encodeURIComponent(fullUrl) + "?password=" + encodeURIComponent(pwd), "_blank");
+                window.open("/" + fullUrl + "?password=" + encodeURIComponent(pwd), "_blank");
               }
             }
           </script>
